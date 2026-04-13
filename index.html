@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="ElectroMart Pro - Your premium electronics destination. Shop mobiles, laptops, accessories and more." />
+  <meta name="theme-color" content="#4f46e5" />
+  <title>ElectroMart Pro</title>
+  <link rel="manifest" href="./manifest.json" />
+  <link rel="icon" type="image/png" href="./icon.png" />
+  <link rel="apple-touch-icon" href="./icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+
+  <!-- Toast Container -->
+  <div id="toast-container" class="toast-container" aria-live="polite"></div>
+
+  <!-- Navbar -->
+  <nav class="navbar" id="navbar">
+    <div class="navbar-brand">
+      <div class="brand-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z" fill="currentColor"/>
+        </svg>
+      </div>
+      <span class="brand-name">ElectroMart<span class="brand-pro">Pro</span></span>
+    </div>
+
+    <div class="navbar-search">
+      <div class="search-wrapper">
+        <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none">
+          <circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="2"/>
+          <path d="m21 21-4.35-4.35" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <input type="search" id="searchInput" class="search-input" placeholder="Search products, brands..." autocomplete="off" />
+      </div>
+    </div>
+
+    <div class="navbar-actions">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode">
+        <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none">
+          <circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="2"/>
+          <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" style="display:none">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <button class="cart-btn" id="cartToggle" aria-label="Open cart">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+          <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+          <line x1="3" y1="6" x2="21" y2="6" stroke="currentColor" stroke-width="2"/>
+          <path d="M16 10a4 4 0 0 1-8 0" stroke="currentColor" stroke-width="2"/>
+        </svg>
+        <span class="cart-count" id="cartCount">0</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Main Layout -->
+  <div class="layout">
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-section">
+        <h3 class="sidebar-title">Categories</h3>
+        <ul class="category-list" id="categoryList">
+          <li class="category-item active" data-category="all">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <rect x="3" y="3" width="7" height="7" rx="1" stroke="currentColor" stroke-width="2"/>
+              <rect x="14" y="3" width="7" height="7" rx="1" stroke="currentColor" stroke-width="2"/>
+              <rect x="3" y="14" width="7" height="7" rx="1" stroke="currentColor" stroke-width="2"/>
+              <rect x="14" y="14" width="7" height="7" rx="1" stroke="currentColor" stroke-width="2"/>
+            </svg>
+            All Products
+          </li>
+          <li class="category-item" data-category="mobiles">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <rect x="5" y="2" width="14" height="20" rx="2" stroke="currentColor" stroke-width="2"/>
+              <line x1="12" y1="18" x2="12.01" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+            Mobiles
+          </li>
+          <li class="category-item" data-category="laptops">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <rect x="2" y="3" width="20" height="14" rx="2" stroke="currentColor" stroke-width="2"/>
+              <path d="M8 21h8M12 17v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+            Laptops
+          </li>
+          <li class="category-item" data-category="accessories">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/>
+              <path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+            Accessories
+          </li>
+        </ul>
+      </div>
+
+      <div class="sidebar-section">
+        <h3 class="sidebar-title">Price Range</h3>
+        <div class="price-filter">
+          <div class="price-display">
+            <span>$0</span>
+            <span id="priceDisplay">$2000</span>
+          </div>
+          <input type="range" id="priceRange" class="price-slider" min="0" max="2000" value="2000" step="50" />
+          <div class="price-labels">
+            <span>Min</span>
+            <span>Max</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="sidebar-section">
+        <h3 class="sidebar-title">Sort By</h3>
+        <select class="sort-select" id="sortSelect">
+          <option value="default">Default</option>
+          <option value="price-asc">Price: Low to High</option>
+          <option value="price-desc">Price: High to Low</option>
+          <option value="name-asc">Name: A to Z</option>
+          <option value="name-desc">Name: Z to A</option>
+        </select>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="content-header">
+        <div class="content-header-left">
+          <h1 class="content-title" id="contentTitle">All Products</h1>
+          <span class="product-count" id="productCount"></span>
+        </div>
+        <button class="mobile-filter-btn" id="mobileFilterToggle" aria-label="Toggle filters">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+            <line x1="4" y1="6" x2="20" y2="6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <line x1="8" y1="12" x2="20" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <line x1="12" y1="18" x2="20" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          Filters
+        </button>
+      </div>
+
+      <!-- Skeleton Loader -->
+      <div class="skeleton-grid" id="skeletonGrid">
+        <div class="skeleton-card" aria-hidden="true"><div class="skeleton-img"></div><div class="skeleton-line"></div><div class="skeleton-line short"></div><div class="skeleton-line medium"></div></div>
+        <div class="skeleton-card" aria-hidden="true"><div class="skeleton-img"></div><div class="skeleton-line"></div><div class="skeleton-line short"></div><div class="skeleton-line medium"></div></div>
+        <div class="skeleton-card" aria-hidden="true"><div class="skeleton-img"></div><div class="skeleton-line"></div><div class="skeleton-line short"></div><div class="skeleton-line medium"></div></div>
+        <div class="skeleton-card" aria-hidden="true"><div class="skeleton-img"></div><div class="skeleton-line"></div><div class="skeleton-line short"></div><div class="skeleton-line medium"></div></div>
+        <div class="skeleton-card" aria-hidden="true"><div class="skeleton-img"></div><div class="skeleton-line"></div><div class="skeleton-line short"></div><div class="skeleton-line medium"></div></div>
+        <div class="skeleton-card" aria-hidden="true"><div class="skeleton-img"></div><div class="skeleton-line"></div><div class="skeleton-line short"></div><div class="skeleton-line medium"></div></div>
+      </div>
+
+      <!-- Product Grid -->
+      <div class="product-grid" id="productGrid" style="display:none"></div>
+
+      <!-- Empty State -->
+      <div class="empty-state" id="emptyState" style="display:none">
+        <div class="empty-icon">
+          <svg width="64" height="64" viewBox="0 0 24 24" fill="none">
+            <circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="1.5"/>
+            <path d="m21 21-4.35-4.35" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M8 11h6M11 8v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h3>No products found</h3>
+        <p>Try adjusting your search or filters</p>
+        <button class="btn-reset" id="resetFilters">Clear All Filters</button>
+      </div>
+    </main>
+  </div>
+
+  <!-- Cart Sidebar -->
+  <div class="cart-overlay" id="cartOverlay"></div>
+  <aside class="cart-panel" id="cartPanel" aria-label="Shopping cart">
+    <div class="cart-header">
+      <h2>Shopping Cart</h2>
+      <button class="cart-close" id="cartClose" aria-label="Close cart">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+          <path d="M18 6 6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+    <div class="cart-items" id="cartItems"></div>
+    <div class="cart-footer" id="cartFooter" style="display:none">
+      <div class="cart-total">
+        <span>Total</span>
+        <span class="total-price" id="totalPrice">$0.00</span>
+      </div>
+      <button class="btn-checkout">Proceed to Checkout</button>
+      <button class="btn-clear" id="clearCart">Clear Cart</button>
+    </div>
+    <div class="cart-empty" id="cartEmpty">
+      <svg width="64" height="64" viewBox="0 0 24 24" fill="none">
+        <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+        <line x1="3" y1="6" x2="21" y2="6" stroke="currentColor" stroke-width="1.5"/>
+        <path d="M16 10a4 4 0 0 1-8 0" stroke="currentColor" stroke-width="1.5"/>
+      </svg>
+      <p>Your cart is empty</p>
+      <span>Add items to get started</span>
+    </div>
+  </aside>
+
+  <!-- Product Modal -->
+  <div class="modal-overlay" id="modalOverlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal" id="productModal">
+      <button class="modal-close" id="modalClose" aria-label="Close modal">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+          <path d="M18 6 6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+      <div class="modal-content">
+        <div class="modal-image-wrap">
+          <img id="modalImage" src="" alt="" loading="lazy" />
+        </div>
+        <div class="modal-info">
+          <span class="modal-badge" id="modalCategory"></span>
+          <h2 class="modal-title" id="modalTitle"></h2>
+          <div class="modal-rating" id="modalRating"></div>
+          <p class="modal-price" id="modalPrice"></p>
+          <p class="modal-desc" id="modalDesc"></p>
+          <div class="modal-features" id="modalFeatures"></div>
+          <button class="btn-modal-cart" id="modalAddToCart">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+              <line x1="3" y1="6" x2="21" y2="6" stroke="currentColor" stroke-width="2"/>
+              <path d="M16 10a4 4 0 0 1-8 0" stroke="currentColor" stroke-width="2"/>
+            </svg>
+            Add to Cart
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="./script.js" defer></script>
+</body>
+</html>

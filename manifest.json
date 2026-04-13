@@ -1,0 +1,43 @@
+{
+  "name": "ElectroMart Pro",
+  "short_name": "ElectroMart",
+  "description": "Your premium electronics destination – shop mobiles, laptops, and accessories.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "orientation": "any",
+  "theme_color": "#6c63ff",
+  "background_color": "#0a0f2e",
+  "lang": "en",
+  "categories": ["shopping", "lifestyle"],
+  "icons": [
+    {
+      "src": "./icon.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [],
+  "shortcuts": [
+    {
+      "name": "All Products",
+      "short_name": "Products",
+      "description": "Browse all products",
+      "url": "./index.html#all",
+      "icons": [{ "src": "./icon.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "View Cart",
+      "short_name": "Cart",
+      "description": "Open your shopping cart",
+      "url": "./index.html#cart",
+      "icons": [{ "src": "./icon.png", "sizes": "96x96" }]
+    }
+  ]
+}
